@@ -27,7 +27,7 @@ namespace MonsterLibrary
 
         public override string ToString()
         {
-            return base.ToString() + (SawAble ? "That Plague Doctor looks angry" : "Why the hell is there a plague doctor here?!?!");
+            return base.ToString();
         }//tostring
     }
 }

@@ -2,7 +2,7 @@
 using MonsterLibrary;
 using System;
 using System.Diagnostics;
-using System.Media;//Added for play music
+using System.Media;
 
 
 namespace Dungeon
@@ -12,9 +12,9 @@ namespace Dungeon
         static void Main(string[] args)
         {
             #region music
-            //SoundPlayer musicPlayer = new SoundPlayer();
-            //musicPlayer.SoundLocation = AppDomain.CurrentDomain.BaseDirectory + "ambience.wav";
-            //musicPlayer.PlayLooping();
+            SoundPlayer musicPlayer = new SoundPlayer();
+            musicPlayer.SoundLocation = AppDomain.CurrentDomain.BaseDirectory + "ambience.wav";
+            musicPlayer.PlayLooping();
             #endregion
             Console.WriteLine("╔╦╦╦═╦╗╔═╦═╦══╦═╗\r\n║║║║╩╣╚╣═╣║║║║║╩╣\r\n╚══╩═╩═╩═╩═╩╩╩╩═╝\r\n");
             Console.Title = "SCP Dungeon Battle";

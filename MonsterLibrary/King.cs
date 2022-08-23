@@ -28,7 +28,7 @@ namespace MonsterLibrary
 
         public override string ToString()
         {
-            return base.ToString() + (YouBelieve ? "IT'S THE SCARLET KING! PRAISE BE TO HIM" : "What is that?");
+            return base.ToString();
         }//tostring
     }
 }
