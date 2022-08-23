@@ -27,7 +27,7 @@ namespace MonsterLibrary
 
         public override string ToString()
         {
-            return base.ToString() + (MiddleExposed ? "What is that bright light?" : "Hm, just a phone.");
+            return base.ToString();
         }//tostring
     }
 }

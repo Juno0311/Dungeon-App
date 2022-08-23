@@ -30,7 +30,7 @@ namespace MonsterLibrary
 
         public override string ToString()
         {
-            return base.ToString() + (MoreApeLike ? "Is that ape standing?" : "Wow, it's Bigfoot!");
+            return base.ToString();
         }//tostring
     }
 }

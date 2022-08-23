@@ -28,7 +28,7 @@ namespace MonsterLibrary
 
         public override string ToString()
         {
-            return base.ToString() + (Angry ? "I should run..." : "Is that a dog?");
+            return base.ToString();
         }//tostring
     }
 }

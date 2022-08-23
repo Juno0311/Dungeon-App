@@ -27,7 +27,7 @@ namespace MonsterLibrary
 
         public override string ToString()
         {
-            return base.ToString() + (HisDimension ? "Where am I?" : "Where is he?");
+            return base.ToString();
         }//tostring
     }
 }

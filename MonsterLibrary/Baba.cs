@@ -27,7 +27,7 @@ namespace MonsterLibrary
 
         public override string ToString()
         {
-            return base.ToString() + (YouHallucinated ? "What did I just see?" : "Is that an old woman?");
+            return base.ToString();
         }//tostring
     }
 }
