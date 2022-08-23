@@ -10,29 +10,16 @@ namespace MonsterLibrary
     {
         public bool TypeA { get; set; }
 
-        public Bear()
-        {
-
-        }
-
-        public Bear(string name, int life, int maxLife, int hitChance, int block, int maxDamage, int minDamage, string description, bool typeA) : base(name, life, maxLife, hitChance, block, maxDamage, minDamage, description)
+        public Bear(string name, int life, int maxLife, int hitChance, int block, int maxDamage, int minDamage, string description, bool typeA, string mega) : base(name, life, maxLife, hitChance, block, maxDamage, minDamage, description, mega)
         {
             TypeA = typeA;
         }
-        //To generate a "parent-compliant ctor,"
-        //make sure the document is saved,
-        //right click on Monster (parent class)
-        //Select Quick Actions and Refactorings
-        //Generate Constructor Class(params)
-        //Add any unique params and handle assignment.
         public override int CalcHitChance()
         {
-            //return base.CalcBlock();
             int result = HitChance;
             if (TypeA)
             {
-                result += HitChance / 4; // dividing in half gives it a bonus
-                //result = result + (block/2)
+                result += HitChance / 4;
             }
             return result;
         }//calcblock
