@@ -173,7 +173,9 @@ c'             |\    \
    \*\_\*\_|O|_/*/_/*/
     \_______________/");
 
-            Monster bigfoot = new Monster("SCP 1000: Bigfoot", 40, 40, 70, 8, 20, 1, "A nocturnal, omnivorous ape, which were classified to be in the Hominini branch. They tend to travel in packs.");
+            Bigfoot bigfoot = new Bigfoot("SCP 1000: Bigfoot", 40, 40, 70, 8, 20, 1, "A nocturnal, omnivorous ape, which were classified to be in the Hominini branch. They tend to travel in packs.", true);
+
+            Bigfoot apeBigfoot = new Bigfoot("SCP 1000: Bigfoot", 40, 40, 70, 8, 20, 1, "A nocturnal, omnivorous ape, which were classified to be in the Hominini branch. They tend to travel in packs.", false);
 
             Doctor aggDoctor = new Doctor();
             Voices angryVoices = new Voices();
@@ -182,11 +184,10 @@ c'             |\    \
             Man manDimension = new Man();
             King kingFollower = new King();
             Cain cainAble = new Cain();
-            Bigfoot apeBigfoot = new Bigfoot();
+            
             Bear deadlyBear = new Bear();
             Baba hallucinateBaba = new Baba();
 
-            //implement Doctor aggDoctor = new Doctor()
 
             Random rand = new Random();
             List<Monster> monsters = new List<Monster>()

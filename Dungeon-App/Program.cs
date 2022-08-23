@@ -2,7 +2,8 @@
 using MonsterLibrary;
 using System;
 using System.Diagnostics;
-using System.Media;
+using System.Media;//Added for play music
+
 
 namespace Dungeon
 {
@@ -10,18 +11,16 @@ namespace Dungeon
     {
         static void Main(string[] args)
         {
-
-           // SoundPlayer music = new SoundPlayer();
-         //   music.SoundLocation = AppDomain.CurrentDomain.BaseDirectory + "ambience.wav";
-         //   music.PlayLooping();
+            #region music
+            //SoundPlayer musicPlayer = new SoundPlayer();
+            //musicPlayer.SoundLocation = AppDomain.CurrentDomain.BaseDirectory + "ambience.wav";
+            //musicPlayer.PlayLooping();
+            #endregion
             Console.WriteLine("╔╦╦╦═╦╗╔═╦═╦══╦═╗\r\n║║║║╩╣╚╣═╣║║║║║╩╣\r\n╚══╩═╩═╩═╩═╩╩╩╩═╝\r\n");
             Console.Title = "SCP Dungeon Battle";
 
             int score = 0;
-            //Create a player
-            //Character below will be replaced with Player at a later date. Using this for testing.
-            //Character player = new Character("Test Character", 10, 10, 100, 100);
-            Weapon pistol = new Weapon(25, 1, "Pistol", 10, false, WeaponType.Pistol);
+
 
             #region name
             Console.Write("Hello, Adventurer! What is your name? ");
@@ -40,15 +39,42 @@ namespace Dungeon
             int userInput = int.Parse(Console.ReadLine()) - 1;
             Race userRace = (Race)userInput;
             #endregion
-
+            #region weapon
+            var wTypes = Enum.GetValues(typeof(WeaponType));
+            int choice = 1;
+            foreach (var weapon in wTypes)
+            {
+                Console.WriteLine($"{choice}) {weapon}");
+                choice++;
+            }
+            Console.WriteLine("Please select a weapon from the list above using a numerical value.");
+            int weaponChoice = int.Parse(Console.ReadLine()) - 1;
+            WeaponType userWeaponType = (WeaponType)weaponChoice;
+            #endregion
+            #region weaponarray
+            Weapon userWeapon = new Weapon();
+            Weapon pistol = new Weapon(15, 1, "Pistol", 10, false, WeaponType.Pistol);
+            Weapon assaultRifle = new Weapon(20, 1, "Assault Rifle", 10, false, WeaponType.Assault_Rifle);
+            Weapon machineGun = new Weapon(35, 1, "Machine Gun", 10, false, WeaponType.Machine_Gun);
+            Weapon grenade = new Weapon(30, 1, "Grenade", 10, false, WeaponType.Grenade);
+            Weapon rocketLauncher = new Weapon(50, 1, "Rocket Launcher", 10, false, WeaponType.Rocket_Launcher);
+            Weapon[] weapons = { pistol, assaultRifle, machineGun, grenade, rocketLauncher };
+            foreach (Weapon item in weapons)
+            {
+                if (item.Type == userWeaponType)
+                {
+                    userWeapon = item;
+                }
+            }
+            #endregion
             Console.Clear();
 
-            Player player = new Player(userName, 70, 5, 40, 40, userRace, pistol);
+            Player player = new Player(userName, 70, 5, 40, 40, userRace, userWeapon);
             bool exit = false;
 
             do
             {
-               
+
 
                 bool reload = false;//boolean for inner loop. Reload new monster/room when true
                 Console.WriteLine($"Hello, {player.Name}, may this site guide you to freedom.");
@@ -58,12 +84,12 @@ namespace Dungeon
                 Console.WriteLine("In the corner of the room, you can see " + monster.Name);
                 do
                 {
-                 Console.Write("\nPlease choose an action:\n" +
-                        "A) Attack\n" +
-                        "R) Run away\n" +
-                        "P) Player Info\n" +
-                        "S) SCP Info\n" +
-                        "X) Exit\n");
+                    Console.Write("\nPlease choose an action:\n" +
+                           "A) Attack\n" +
+                           "R) Run away\n" +
+                           "P) Player Info\n" +
+                           "S) SCP Info\n" +
+                           "X) Exit\n");
                     string userChoice = Console.ReadKey(true).Key.ToString();
                     Console.Clear();
                     switch (userChoice)

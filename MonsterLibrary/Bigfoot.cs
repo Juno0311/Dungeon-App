@@ -10,11 +10,7 @@ namespace MonsterLibrary
     {
         public bool MoreApeLike { get; set; }
 
-        public Bigfoot()
-        {
-
-        }
-
+       
         public Bigfoot(string name, int life, int maxLife, int hitChance, int block, int maxDamage, int minDamage, string description, bool moreApeLike) : base(name, life, maxLife, hitChance, block, maxDamage, minDamage, description)
         {
             MoreApeLike = moreApeLike;
